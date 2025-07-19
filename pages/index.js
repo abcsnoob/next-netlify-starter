@@ -13,34 +13,35 @@ const HomePage = ({ pets }) => {
   return (
     <Layout>
       <Head>
-        <title>Xóm có thú cưng - Nơi kết nối những người yêu thú cưng</title>
-        <meta name="description" content="Khám phá và kết nối với những người yêu thú cưng tại Xóm có thú cưng." />
-        <link rel="icon" href="/logo.ico"/> {/* <--- Đã sửa ở đây */}
+        <title>Xóm có thú cưng - Nơi cộng đồng yêu động vật kết nối</title>
+        <meta name="description" content="Khám phá và kết nối với những người yêu thú cưng. Chia sẻ ảnh, kinh nghiệm chăm sóc, và tìm kiếm bạn bè bốn chân tại Xóm có thú cưng." />
+        <link rel="icon" href="/logo.ico" />
       </Head>
 
       {/* Phần Banner/Hero Section */}
-      <section className="relative w-full h-96 bg-gray-200 flex items-center justify-center overflow-hidden">
+      <section className="relative w-full h-96 flex items-center justify-center overflow-hidden">
+        {/* Đảm bảo ảnh này có tồn tại tại public/images/banner-pet.jpg */}
         <Image
-          src="/images/banner-pet.jpg" // Đặt một ảnh banner đẹp trong public/images
+          src="/images/banner-pet.jpg" // Vui lòng kiểm tra lại đường dẫn và tên file ảnh
           alt="Thú cưng đang vui chơi"
           layout="fill"
-          objectFit="cover"
+          objectFit="cover" // Đảm bảo ảnh phủ kín vùng
           quality={80}
-          className="z-0"
+          className="z-0" // Đặt layer dưới cùng
         />
-        <div className="relative z-10 text-center text-white p-4 bg-black bg-opacity-50 rounded-lg">
-          <h1 className="text-5xl font-extrabold mb-4 animate-fade-in-down">
+        <div className="relative z-10 text-center text-white p-4 bg-black bg-opacity-50 rounded-lg max-w-2xl mx-auto">
+          <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 animate-fade-in-down">
             Chào mừng đến với <span className="text-yellow-400">Xóm có thú cưng</span>!
           </h1>
-          <p className="text-xl mb-6">Nơi cộng đồng yêu động vật cùng chia sẻ và kết nối.</p>
-          <div className="space-x-4">
-            <Link href="/pets">
-              <button className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-6 rounded-full text-lg shadow-lg transition-all duration-300 transform hover:scale-105">
+          <p className="text-lg sm:text-xl mb-6">Nơi cộng đồng yêu động vật cùng chia sẻ và kết nối.</p>
+          <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+            <Link href="/pets" passHref>
+              <button className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-6 rounded-full text-lg shadow-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-75">
                 Xem tất cả thú cưng
               </button>
             </Link>
-            <Link href="/add-pet">
-              <button className="bg-white hover:bg-gray-100 text-gray-800 font-bold py-3 px-6 rounded-full text-lg shadow-lg transition-all duration-300 transform hover:scale-105">
+            <Link href="/add-pet" passHref>
+              <button className="bg-white hover:bg-gray-100 text-gray-800 font-bold py-3 px-6 rounded-full text-lg shadow-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-opacity-75">
                 Đăng ký thú cưng của bạn
               </button>
             </Link>
@@ -67,8 +68,8 @@ const HomePage = ({ pets }) => {
             ))}
           </div>
           <div className="text-center mt-12">
-            <Link href="/pets">
-              <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg transition-all duration-300 transform hover:scale-105">
+            <Link href="/pets" passHref>
+              <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75">
                 Xem thêm thú cưng khác
               </button>
             </Link>
@@ -76,7 +77,7 @@ const HomePage = ({ pets }) => {
         </div>
       </section>
 
-      {/* Phần Giới thiệu về cộng đồng (tùy chọn) */}
+      {/* Phần Giới thiệu về cộng đồng */}
       <section className="container mx-auto px-4 py-16">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
@@ -87,18 +88,20 @@ const HomePage = ({ pets }) => {
             <p className="text-lg text-gray-700 leading-relaxed">
               Dù bạn đang tìm kiếm một người bạn mới, cần lời khuyên về chăm sóc thú cưng, hay chỉ đơn giản là muốn chia sẻ khoảnh khắc đáng yêu của thú cưng nhà mình, "Xóm có thú cưng" luôn chào đón bạn!
             </p>
-            <Link href="/about">
-              <button className="mt-8 bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full text-lg shadow-lg transition-all duration-300 transform hover:scale-105">
+            <Link href="/about" passHref>
+              <button className="mt-8 bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full text-lg shadow-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75">
                 Tìm hiểu thêm về chúng tôi
               </button>
             </Link>
           </div>
           <div className="relative w-full h-64 md:h-96 rounded-lg overflow-hidden shadow-xl">
+            {/* Đảm bảo ảnh này có tồn tại tại public/images/community-pet.jpg */}
             <Image
-              src="/images/community-pet.jpg" // Một ảnh khác về cộng đồng/thú cưng
+              src="/images/community-pet.jpg" // Vui lòng kiểm tra lại đường dẫn và tên file ảnh
               alt="Cộng đồng thú cưng"
               layout="fill"
               objectFit="cover"
+              quality={80}
             />
           </div>
         </div>
@@ -114,6 +117,7 @@ export async function getStaticProps() {
     props: {
       pets: mockPets,
     },
+    // Revalidate sau mỗi 60 giây để cập nhật dữ liệu mới nếu có thay đổi
     revalidate: 60,
   };
 }
