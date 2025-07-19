@@ -1,20 +1,21 @@
+// pages/index.js
 import React from 'react';
-import Head from 'next/head'; // Để quản lý thẻ <head> của trang
-import Image from 'next/image'; // Để tối ưu hóa hình ảnh
-import Link from 'next/link';   // Để điều hướng giữa các trang
+import Head from 'next/head';
+import Image from 'next/image';
+import Link from 'next/link';
+
 import Layout from '../components/Layout';
 import PetCard from '../components/PetCard';
-import SearchBar from '../components/SearchBar'; // Giả định có component SearchBar
-import { mockPets } from '../data/pets'; // Import dữ liệu thú cưng mẫu
+import SearchBar from '../components/SearchBar';
+import { mockPets } from '../data/pets';
 
 const HomePage = ({ pets }) => {
   return (
-    // Sử dụng component Layout để bọc toàn bộ nội dung trang
     <Layout>
       <Head>
         <title>Xóm có thú cưng - Nơi kết nối những người yêu thú cưng</title>
         <meta name="description" content="Khám phá và kết nối với những người yêu thú cưng tại Xóm có thú cưng." />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico"/> {/* <--- Đã sửa ở đây */}
       </Head>
 
       {/* Phần Banner/Hero Section */}
@@ -51,7 +52,6 @@ const HomePage = ({ pets }) => {
       <section className="container mx-auto px-4 py-12">
         <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">Tìm kiếm người bạn bốn chân của bạn</h2>
         <div className="max-w-xl mx-auto">
-          {/* Giả định bạn có component SearchBar */}
           <SearchBar />
         </div>
       </section>
@@ -110,16 +110,11 @@ const HomePage = ({ pets }) => {
 
 // Hàm getStaticProps để lấy dữ liệu tĩnh trong quá trình build
 export async function getStaticProps() {
-  // Trong môi trường thực tế, bạn sẽ fetch dữ liệu từ API của backend
-  // Ví dụ: const res = await fetch('https://your-api.com/pets');
-  // const data = await res.json();
-
-  // Hiện tại, chúng ta sử dụng dữ liệu mẫu (mock data)
   return {
     props: {
-      pets: mockPets, // Truyền dữ liệu mockPets vào props của HomePage
+      pets: mockPets,
     },
-    revalidate: 60, // Tùy chọn: tái tạo lại trang sau mỗi 60 giây nếu có request mới (ISR)
+    revalidate: 60,
   };
 }
 
