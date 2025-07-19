@@ -15,7 +15,7 @@ const HomePage = ({ pets }) => {
       <Head>
         <title>Xóm có thú cưng - Nơi kết nối những người yêu thú cưng</title>
         <meta name="description" content="Khám phá và kết nối với những người yêu thú cưng tại Xóm có thú cưng." />
-        <link rel="icon" href="/favicon.ico"/> {/* <--- Đã sửa ở đây */}
+        <link rel="icon" href="/logo.ico"/> {/* <--- Đã sửa ở đây */}
       </Head>
 
       {/* Phần Banner/Hero Section */}
